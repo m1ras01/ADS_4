@@ -31,6 +31,8 @@ public class MyHashTable<K, V> {
 
     public V get(K key){}
 
+    public V remove(K key){}
+
 
 
 }
