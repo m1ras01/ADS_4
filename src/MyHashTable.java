@@ -21,7 +21,7 @@ public class MyHashTable<K, V> {
 
 
 
-
+    public MyHashTable(){}
 
 
 }
