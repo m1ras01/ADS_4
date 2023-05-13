@@ -35,6 +35,8 @@ public class MyHashTable<K, V> {
 
     public boolean contains(V value){}
 
+    public K getKey(V value){}
+
 
 
 }
