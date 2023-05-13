@@ -25,5 +25,7 @@ public class MyHashTable<K, V> {
 
     public MyHashTable(int M){}
 
+    private int hash(K key){}
+
 
 }
