@@ -30,7 +30,13 @@ public class MyHashTable<K, V> {
         chainArray = new HashNode[M];
     }
 
-    private int hash(K key){}
+    private int hash(K key){
+        int hash = 0;
+        if(key!= null){
+            hash = key.hashCode();
+        }
+        return hash;
+    }
 
     public void put(K key, V value){}
 
