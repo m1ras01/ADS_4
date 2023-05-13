@@ -27,5 +27,8 @@ public class MyHashTable<K, V> {
 
     private int hash(K key){}
 
+    public void put(K key, V value){}
+
+
 
 }
