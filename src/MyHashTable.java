@@ -33,6 +33,8 @@ public class MyHashTable<K, V> {
 
     public V remove(K key){}
 
+    public boolean contains(V value){}
+
 
 
 }
