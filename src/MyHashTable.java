@@ -23,11 +23,13 @@ public class MyHashTable<K, V> {
 
     public MyHashTable(){
         chainArray = new HashNode[M];
+        size = 0;
     }
 
     public MyHashTable(int M){
         this.M = M;
         chainArray = new HashNode[M];
+        size = 0;
     }
 
     private int hash(K key){
@@ -38,9 +40,32 @@ public class MyHashTable<K, V> {
         return hash;
     }
 
-    public void put(K key, V value){}
+    public void put(K key, V value){
+        int index = hash(key);
+        HashNode<K,V> node = new HashNode<>(key,value);
+        if (chainArray[index]==null) chainArray[index] = node;
+        else{
+            HashNode<K,V> temp = chainArray[index];
+            while (temp.next != null){
+                if(temp.key.equals(key)){
+                    temp.value = value;
+                    return;
+                }
+                temp = temp.next;
+            }
+            if (temp.key.equals(key)) {
+                temp.value = value;
+            }else {
+                temp.next = node;
+            }
+        }
+        size++;
+    }
 
-    public V get(K key){}
+    public V get(K key){
+        int index = hash(key);
+
+    }
 
     public V remove(K key){}
 
