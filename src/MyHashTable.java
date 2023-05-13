@@ -21,9 +21,13 @@ public class MyHashTable<K, V> {
 
 
 
-    public MyHashTable(){}
+    public MyHashTable(){
+        chainArray = new HashNode[M];
+    }
 
-    public MyHashTable(int M){}
+    public MyHashTable(int M){
+
+    }
 
     private int hash(K key){}
 
