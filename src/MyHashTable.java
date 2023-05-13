@@ -26,7 +26,8 @@ public class MyHashTable<K, V> {
     }
 
     public MyHashTable(int M){
-
+        this.M = M;
+        chainArray = new HashNode[M];
     }
 
     private int hash(K key){}
