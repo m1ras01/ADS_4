@@ -1,20 +1,4 @@
 public class MyHashTable<K, V> {
-    private class HashNode<K, V> {
-        private K key;
-        private V value;
-        private HashNode<K, V> next;
-
-        public HashNode(K key, V value) {
-            this.key = key;
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return "{" + key + " " + value + "}";
-        }
-    }
-
         private HashNode<K,V>[] chainArray;
         private int M = 11;
         private int size;
@@ -35,7 +19,7 @@ public class MyHashTable<K, V> {
     private int hash(K key){
         int hash = 0;
         if(key!= null){
-            hash = key.hashCode();
+            hash = key.hashCode() % M;
         }
         return hash;
     }
@@ -46,17 +30,17 @@ public class MyHashTable<K, V> {
         if (chainArray[index]==null) chainArray[index] = node;
         else{
             HashNode<K,V> temp = chainArray[index];
-            while (temp.next != null){
-                if(temp.key.equals(key)){
-                    temp.value = value;
+            while (temp.getNext() != null){
+                if(temp.getKey().equals(key)){
+                    temp.setValue(value);
                     return;
                 }
-                temp = temp.next;
+                temp = temp.getNext();
             }
-            if (temp.key.equals(key)) {
-                temp.value = value;
+            if (temp.getKey().equals(key)) {
+                temp.setValue(value);
             }else {
-                temp.next = node;
+                temp.setNext(node);
             }
         }
         size++;
@@ -66,10 +50,10 @@ public class MyHashTable<K, V> {
         int index = hash(key);
         HashNode<K, V> temp = chainArray[index];
         while(temp != null){
-            if(temp.key.equals(key)){
-                return temp.value;
+            if(temp.getKey().equals(key)){
+                return temp.getValue();
             }
-            temp = temp.next;
+            temp = temp.getNext();
         }
         return null;
     }
@@ -79,17 +63,17 @@ public class MyHashTable<K, V> {
         HashNode<K, V> temp = chainArray[index];
         HashNode<K, V> prev = null;
         while(temp != null){
-            if(temp.key.equals(key)){
+            if(temp.getKey().equals(key)){
                 if(prev == null){
-                    chainArray[index] = temp.next;
+                    chainArray[index] = temp.getNext();
                 } else {
-                    prev.next = temp.next;
+                    prev.setNext(temp.getNext());
                 }
                 size--;
-                return temp.value;
+                return temp.getValue();
             }
             prev = temp;
-            temp = temp.next;
+            temp = temp.getNext();
         }
         return null;
     }
@@ -98,8 +82,8 @@ public class MyHashTable<K, V> {
         for(int i = 0 ; i < M ; i++){
             HashNode<K,V> temp = chainArray[i];
             while(temp != null){
-                if (temp.value.equals(value)) return true;
-                temp = temp.next;
+                if (temp.getValue().equals(value)) return true;
+                temp = temp.getNext();
             }
         }
         return false;
@@ -109,8 +93,8 @@ public class MyHashTable<K, V> {
         for (int i = 0 ; i < M ;i++){
             HashNode<K,V> temp = chainArray[i];
             while (temp != null){
-                if (temp.value.equals(value)) return temp.key;
-                temp = temp.next;
+                if (temp.getValue().equals(value)) return temp.getKey();
+                temp = temp.getNext();
             }
         }
         return null;
