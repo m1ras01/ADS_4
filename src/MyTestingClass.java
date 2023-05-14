@@ -1,25 +1,33 @@
 public class MyTestingClass {
-    private String name;
-    private int ID;
+    private int value;
 
-    public MyTestingClass(String name, int ID){
-        this.name = name;
-        this.ID = ID;
+    public MyTestingClass(int value){
+        this.value = value;
     }
 
-    public int getID(){
-        return ID;
+    public int getValue(){
+        return value;
     }
 
-    public String getName(){
-        return name;
-    }
+
 
     @Override
     public int hashCode(){
         int hashResult = 17;
-        hashResult = 31 * hashResult + ID;
-        hashResult = 31 * hashResult + name.hashCode();
+        hashResult = 31 * hashResult + value;
         return hashResult;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MyTestingClass)) {
+            return false;
+        }
+        MyTestingClass other = (MyTestingClass) obj;
+        return this.value == other.value;
+    }
 }
+
