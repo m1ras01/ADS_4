@@ -14,4 +14,12 @@ public class MyTestingClass {
     public String getName(){
         return name;
     }
+
+    @Override
+    public int hashCode(){
+        int hashResult = 17;
+        hashResult = 31 * hashResult + ID;
+        hashResult = 31 * hashResult + name.hashCode();
+        return hashResult;
+    }
 }
