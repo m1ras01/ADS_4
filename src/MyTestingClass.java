@@ -11,5 +11,7 @@ public class MyTestingClass {
         return ID;
     }
 
-
+    public String getName(){
+        return name;
+    }
 }
