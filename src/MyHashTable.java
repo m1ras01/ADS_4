@@ -94,9 +94,16 @@ public class MyHashTable<K, V> {
         return null;
     }
 
-    public boolean contains(V value){}
-
-    public K getKey(V value){}
+    public boolean contains(V value){
+        for(int i = 0 ; i < M ; i++){
+            HashNode<K,V> temp = chainArray[i];
+            while(temp != null){
+                if (temp.value.equals(value)) return true;
+                temp = temp.next;
+            }
+        }
+        return false;
+    }
 
 
 
