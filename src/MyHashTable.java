@@ -1,3 +1,6 @@
+import java.util.List;
+import java.util.Objects;
+
 public class MyHashTable<K, V> {
     private int M = 11;
     private HashNode<K, V>[] table;
@@ -126,10 +129,27 @@ public class MyHashTable<K, V> {
             while (currentNode != null) {
                 if (currentNode.getValue().equals(value)) {
                     return currentNode.getKey();
-                }
+                }   
                 currentNode = currentNode.getNext();
             }
         }
         return null;
     }
+    public boolean containsKey(K key) {
+        for (int i = 0; i < M; i++) {
+            HashNode<K, V> currentNode = table[i];
+            while (currentNode != null) {
+                if (currentNode.getKey().equals(key)) {
+                    return true;
+                }
+                currentNode = currentNode.getNext();
+            }
+        }
+        return false;
+    }
+
+
+
+
+
 }

@@ -48,9 +48,14 @@ public class Main {
         System.out.println("Key of value \"testValue\": " + table.getKey("testValue"));
         System.out.println("Key of value \"nonExistingValue\": " + table.getKey("nonExistingValue"));
 
+
         // example of toString
         HashNode<Integer, String> node = new HashNode<>(1, "hello");
         String nodeString = node.toString();
         System.out.println(nodeString);
+
+        MyHashTable<Integer, String> table1 = new MyHashTable<>();
+        table1.put(2,"jsd");
+        System.out.println(table1.containsKey(2));
     }
 }

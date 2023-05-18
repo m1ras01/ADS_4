@@ -29,5 +29,7 @@ public class MyTestingClass {
         MyTestingClass other = (MyTestingClass) obj;
         return this.value == other.value;
     }
+
+
 }
 
