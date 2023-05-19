@@ -149,6 +149,13 @@ public class MyHashTable<K, V> {
     }
 
 
+    public void clear(){
+        for(int i = 0 ; i <M ;i++){
+            table[i] = null;
+        }
+        size = 0;
+    }
+
 
 
 
