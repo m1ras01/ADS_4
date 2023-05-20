@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        /*
+
         MyHashTable<MyTestingClass, String> table = new MyHashTable<>(100);
         Random rand = new Random();
         // giving random value for keys and then putting them into bucket
@@ -52,6 +52,8 @@ public class Main {
         table.clear();
         System.out.println(table.getKey("testValue"));
 
+
+
         // example of toString
         HashNode<Integer, String> node = new HashNode<>(1, "hello");
         String nodeString = node.toString();
@@ -62,12 +64,20 @@ public class Main {
         MyHashTable<Integer, String> table1 = new MyHashTable<>();
         table1.put(2,"jsd");
         System.out.println(table1.containsKey(2));
-*/
+
         MyHashTable<Integer, String> table2 = new MyHashTable<>(212);
         table2.put(1,"USA");
+        table2.put(2,"ewf");
+        table2.put(3,"aaa");
         table2.replace(1,"USA","KZ");
+        table2.replace(2,"ewf","kkl");
 
         System.out.println(table2.get(1));//output: KZ
+        System.out.println(table2.get(2));
+
+
+        MyHashTable<Integer, String> clone = new MyHashTable<>();
+        System.out.println(table.clone());
 
     }
 }

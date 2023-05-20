@@ -181,9 +181,17 @@ public class MyHashTable<K, V> {
 
 
     }
+    public MyHashTable<K, V> clone() {
+        MyHashTable<K, V> newHashTable = new MyHashTable<>(M);
 
+        for (int i = 0; i < M; i++) {
+            HashNode<K, V> currentNode = table[i];
+            while (currentNode != null) {
+                newHashTable.put(currentNode.getKey(), currentNode.getValue());
+                currentNode = currentNode.getNext();
+            }
+        }
 
-
-
-
+        return newHashTable;
+    }
 }
