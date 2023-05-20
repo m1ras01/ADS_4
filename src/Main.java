@@ -61,6 +61,11 @@ public class Main {
         System.out.println(nodeString);
 
 
+
+
+
+
+        // For method replace()
         MyHashTable<Integer, String> table1 = new MyHashTable<>();
         table1.put(2,"jsd");
         System.out.println(table1.containsKey(2));
@@ -76,8 +81,22 @@ public class Main {
         System.out.println(table2.get(2));
 
 
-        MyHashTable<Integer, String> clone = new MyHashTable<>();
-        System.out.println(table.clone());
 
+
+        // For method clone()
+        MyHashTable<Integer, String> originalTable = new MyHashTable<>();
+        originalTable.put(1, "Bir");
+        originalTable.put(2, "two");
+        originalTable.put(3,"three");
+        originalTable.put(4,"four");
+        originalTable.put(5,"five");
+
+        // Clone the original table
+        MyHashTable<Integer, String> clonedTable = originalTable.clone();
+
+        // cloned table
+        System.out.println(clonedTable.getKey("Bir")); // Output: 1
+        System.out.println(clonedTable.getKey("two")); // Output: 2
+        System.out.println(clonedTable.getKey("three")); // Output: 3
     }
 }
