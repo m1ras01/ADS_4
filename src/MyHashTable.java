@@ -168,13 +168,13 @@ public class MyHashTable<K, V> {
         for (int i = 0; i < M; i++) {
             HashNode<K, V> currentNode = table[i];
             while (currentNode != null) {
-                if (currentNode.getKey().equals(key)) {
+                if (currentNode.getKey().equals(key) && currentNode.getValue().equals(oldValue)) {
                     key2 = key;
                     currentNode.setValue(newValue);
-                    currentNode = null;
+                    return;
                 }
           //  if(currentNode.getValue().equals(newValue)) return;
-
+            currentNode = currentNode.getNext();
             }
         }
         return;
