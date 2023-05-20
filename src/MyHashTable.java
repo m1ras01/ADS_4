@@ -156,6 +156,33 @@ public class MyHashTable<K, V> {
         size = 0;
     }
 
+    public void resize(int newSize){
+        for(int i = newSize;i<M;i++){
+            table[i] = null;
+        }
+
+    }
+
+    public void replace(K key , V oldValue,V newValue){
+        K key2;
+        for (int i = 0; i < M; i++) {
+            HashNode<K, V> currentNode = table[i];
+            while (currentNode != null) {
+                if (currentNode.getKey().equals(key)) {
+                    key2 = key;
+                    currentNode.setValue(newValue);
+                    currentNode = null;
+                }
+          //  if(currentNode.getValue().equals(newValue)) return;
+
+            }
+        }
+        return;
+
+
+    }
+
+
 
 
 

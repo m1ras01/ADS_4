@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        /*
         MyHashTable<MyTestingClass, String> table = new MyHashTable<>(100);
         Random rand = new Random();
         // giving random value for keys and then putting them into bucket
@@ -47,7 +48,7 @@ public class Main {
         // testing the getKey() method
         System.out.println("Key of value \"testValue\": " + table.getKey("testValue"));
         System.out.println("Key of value \"nonExistingValue\": " + table.getKey("nonExistingValue"));
-
+        table.resize(1);
         table.clear();
         System.out.println(table.getKey("testValue"));
 
@@ -57,8 +58,16 @@ public class Main {
 
         System.out.println(nodeString);
 
+
         MyHashTable<Integer, String> table1 = new MyHashTable<>();
         table1.put(2,"jsd");
         System.out.println(table1.containsKey(2));
+*/
+        MyHashTable<Integer, String> table2 = new MyHashTable<>(212);
+        table2.put(1,"USA");
+        table2.replace(1,"USA","KZ");
+
+        System.out.println(table2.get(1));//output: KZ
+
     }
 }
